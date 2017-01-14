@@ -48,5 +48,13 @@ docker run -dt --name=cassandra cassandra:1.0
 
 ```
 
+## How to check the cassandra node is up and running in docker?
+
+Cassandra has the nodetool which gives lot of status about cassandra cluster that is running inside the docker.  
+
+```
+docker exec -it cassandra nodetool status
+
+```
 
 
