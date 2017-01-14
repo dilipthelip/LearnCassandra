@@ -123,5 +123,6 @@ UN  172.17.0.3  108.18 KiB  256          100.0%            96b8e0a2-7c40-4f55-80
 UN  172.17.0.2  129.96 KiB  256          100.0%            3ebd1b04-d25d-4d9f-b43e-90a73463594d  rack1
 ```
 
-
+# Snitch:  
+Snitch is what cassandra uses to get the understanding of **Cassandra**
 
