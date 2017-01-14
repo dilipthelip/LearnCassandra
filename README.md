@@ -134,3 +134,19 @@ It used to efficiently route requests and it is consulted when storing multiple 
 
 Cloud and Other infrastuctures have their own snitch of their own.   
 
+## Cassandra Terminology:
+
+It is common to store multiple copies of the data across clusters. It increases reliality and performance.  
+
+- Data in cassandra is organized in to KeySpace(Similar to Oracle/MySQL tableSpace).
+- KeySpace has Tables(It is close to its counterpart Oracle Table).
+- All data written to cassandra is associated with a **Partition** key.
+- This partition key determines where the data is stored in the cluster. All the data in the partition are stored together.
+- Partition is primary interaction point when reading or writing data in to cluster.
+- Data within a parition represented as one or more rows.
+- **Replication Strategy** is determined at the keyspace level.
+- 
+
+```
+KeySpace->Table->Partition->row
+```
