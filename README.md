@@ -18,6 +18,20 @@ brew install cassandra
 
 ```
 
+## How to check Cassandra Version?
+
+```
+Type "cqlsh"
+
+show VERSION
+```
+
+## How to download the docker image of Cassandra ?
+
+clone thos repo and build the docker image based in your cassandra version.
+```
+https://github.com/docker-library/cassandra/tree/3ca0a18a575ae318f753ab1ecf01d54c93192681
+```
 
 
 
