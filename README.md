@@ -114,7 +114,6 @@ docker run --name cassandra2 -d -e CASSANDRA_SEEDS="$(docker inspect --format='{
 Checking the new node in the cluster:  
 docker exec -it cassandra nodetool ring
 
-
 Datacenter: datacenter1
 =======================
 Status=Up/Down
