@@ -145,7 +145,6 @@ It is common to store multiple copies of the data across clusters. It increases 
 - Partition is primary interaction point when reading or writing data in to cluster.
 - Data within a parition represented as one or more rows.
 - **Replication Strategy** is determined at the keyspace level.
-- 
 
 ```
 KeySpace->Table->Partition->row
