@@ -26,13 +26,27 @@ Type "cqlsh"
 show VERSION
 ```
 
-## How to download the docker image of Cassandra ?
+## How to download the docker file of Cassandra ?
 
 clone thos repo and build the docker image based in your cassandra version.
+
 ```
 https://github.com/docker-library/cassandra/tree/3ca0a18a575ae318f753ab1ecf01d54c93192681
 ```
 
+## How to build the docker image?
+
+```
+docker build -t cassandra:1.0 .
+
+```
+
+## How to run the docker image ?
+
+```
+docker run -dt --name=cassandra cassandra:1.0
+
+```
 
 
 
