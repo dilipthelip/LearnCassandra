@@ -110,6 +110,18 @@ cassandra -> container name
 
 ```
 docker run --name cassandra2 -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' cassandra)" cassandra:1.0
+
+Checking the new node in the cluster:  
+docker exec -it cassandra nodetool ring
+
+
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.3  108.18 KiB  256          100.0%            96b8e0a2-7c40-4f55-8007-91480487362d  rack1
+UN  172.17.0.2  129.96 KiB  256          100.0%            3ebd1b04-d25d-4d9f-b43e-90a73463594d  rack1
 ```
 
 
