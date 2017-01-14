@@ -55,6 +55,35 @@ Cassandra has the nodetool which gives lot of status about cassandra cluster tha
 ```
 docker exec -it cassandra nodetool status
 
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.2  103.51 KiB  256          100.0%            3ebd1b04-d25d-4d9f-b43e-90a73463594d  rack1
+
+
 ```
+UN -> U represnts the cluster is **up**, N represents the it is in **normal** status.  
+256 -> Total no of V nodes.This is the default.  
+
+## How to display all the token values ?
+
+```
+docker exec -it cassandra nodetool ring
+
+Datacenter: datacenter1
+==========
+Address     Rack        Status State   Load            Owns                Token                                       
+                                                                           9081570306984179364                         
+172.17.0.2  rack1       Up     Normal  103.51 KiB      100.00%             -9173949671864146016                        
+172.17.0.2  rack1       Up     Normal  103.51 KiB      100.00%             -9154750697609864773                        
+172.17.0.2  rack1       Up     Normal  103.51 KiB      100.00%             -9068947733955971809 
+
+```
+
+
+
+
 
 
