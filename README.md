@@ -109,7 +109,7 @@ cassandra -> container name
 ## How to create another node in the cluster?
 
 ```
-
+docker run --name cassandra2 -d -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' cassandra)" cassandra:1.0
 ```
 
 
