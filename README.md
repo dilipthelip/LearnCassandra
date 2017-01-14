@@ -1,3 +1,24 @@
 # LearnCassandra
 
 Cassandra was originally developed at Facebook. Cassandra combines the distributed model of **Dynamo(Amazon)** and the data model of **Bigtable(Google)**.  
+
+Cassandra installation is represented by bunch of nodes. Each node is a representation of a running instance of Cassandra. Cassandra cluster is a masterless and peer to peer system.  
+
+All data stored in cassandra is associated with a **token**. Nodes are responsible for storing the token values in to the Cassandra DB.When new modes are added , each node takes care of contiguos set of nodes managing the tokens.  
+
+## How Cassandra stores Data ?  
+- Cassandra is a **partitioned row store**.Data are read and written with a partition key.
+- When data is inserted the hash(partition key) is hashed in to the token.  
+- Token value specifies which V node and physical node responsible for the data.  
+
+## How to install Cassandra ?
+
+```
+brew install cassandra
+
+```
+
+
+
+
+
