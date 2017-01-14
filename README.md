@@ -124,5 +124,13 @@ UN  172.17.0.2  129.96 KiB  256          100.0%            3ebd1b04-d25d-4d9f-b4
 ```
 
 # Snitch:  
-Snitch is what cassandra uses to get the understanding of **Cassandra**
+Snitch is what cassandra uses to get the understanding of **Cassandra**.
+
+It used to efficiently route requests and it is consulted when storing multiple copies of the data.
+
+**SimpleSnitch:** - The Simplesnitch is suitable for development and single data center deployments.   
+**GossipingPropertyFileSnitch** - This is the protocol cassandra uses to talk to one another and keep everyone up to date on the state of the cluster.This snitch uses a property file in each node to describe that nodes location.Then the nodes gossip with each other.  
+**PropertyFileSnitch** - The entire topolgy is defined in a single property file.  
+
+Cloud and Other infrastuctures have their own snitch of their own.   
 
