@@ -82,8 +82,35 @@ Address     Rack        Status State   Load            Owns                Token
 
 ```
 
+## How to login to the Cassandra cluster?
 
+```
+docker exec -it cassandra /bin/bash
+```
 
+## How to view the cassandra.yaml?
+
+```
+cd /etc/cassandra
+
+cat cassandra.yaml
+```
+
+## How to get the IP address of the current Cluster ?
+
+```
+docker inspect -f '{{ .NetworkSettings.IPAddress}}' cassandra
+
+172.17.0.2
+
+cassandra -> container name
+```
+
+## How to create another node in the cluster?
+
+```
+
+```
 
 
 
