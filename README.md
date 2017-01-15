@@ -142,6 +142,10 @@ Cloud and Other infrastuctures have their own snitch of their own.
 
 It is common to store multiple copies of the data across clusters. It increases reliality and performance.  
 
+```
+KeySpace->Table->Partition->row
+```
+
 - Data in cassandra is organized in to KeySpace(Similar to Oracle/MySQL tableSpace).
 - KeySpace has Tables(It is close to its counterpart Oracle Table).
 - All data written to cassandra is associated with a **Partition** key.
@@ -149,7 +153,10 @@ It is common to store multiple copies of the data across clusters. It increases 
 - Partition is primary interaction point when reading or writing data in to cluster.
 - Data within a parition represented as one or more rows.
 - **Replication Strategy** is determined at the keyspace level.
-
-```
-KeySpace->Table->Partition->row
-```
+  - SimpleStrategy: This is best used in development or single data center clusters.
+    **Example CQL:**  - 
+    ```
+    create keyspace simpleStrategyReplication = 
+    {'class': 'SimpleStrategy', 'replication_factor':'3'};
+    
+    ```
