@@ -46,12 +46,25 @@ docker build -t cassandra:1.0 .
 
 ```
 
-## How to run the docker image ?
+## How to create a node in the cluster ?
+
+Approach 1:  
 
 ```
 docker run -dt --name=cassandra cassandra:1.0
 
 ```
+
+Approach 2: Creating a node with data center and Rack.  
+
+-dc - represents the data center.  
+-rack - represents the rack.  
+
+```
+docker run -dt --name=cassandra cassandra:1.0 -dc DC1 -rack RAC1
+
+```
+
 
 ## How to check the cassandra node is up and running in docker?
 
@@ -66,7 +79,6 @@ Status=Up/Down
 |/ State=Normal/Leaving/Joining/Moving
 --  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
 UN  172.17.0.2  103.51 KiB  256          100.0%            3ebd1b04-d25d-4d9f-b43e-90a73463594d  rack1
-
 
 ```
 UN -> U represnts the cluster is **up**, N represents the it is in **normal** status.  
