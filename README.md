@@ -168,9 +168,10 @@ KeySpace->Table->Partition->row
 - **Replication Strategy** is determined at the keyspace level.
   - **SimpleStrategy:** This is best used in development or single data center clusters.  
     **Example CQL:**  - 
+    The keyspace name should be in lowercase only.  
+    
     ```
-    create keyspace simpleStrategyReplication = 
-    {'class': 'SimpleStrategy', 'replication_factor':'3'};
+    create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'};
     
     ```
     - **Network Topology Strategy:** 
@@ -180,3 +181,9 @@ KeySpace->Table->Partition->row
     {'class': 'NetworkTopologyStrategy', 'DC1':'3','DC2':1};
     
     ```
+
+## CQL in docker Image :
+
+```
+docker exec -it cassandra cqlsh
+```
