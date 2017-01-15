@@ -160,3 +160,10 @@ KeySpace->Table->Partition->row
     {'class': 'SimpleStrategy', 'replication_factor':'3'};
     
     ```
+    - **Network Topology Strategy:** 
+    **Example CQL:**  - 
+    ```
+    create keyspace simpleStrategyReplication = 
+    {'class': 'NetworkTopologyStrategy', 'DC1':'3','DC2':1};
+    
+    ```
