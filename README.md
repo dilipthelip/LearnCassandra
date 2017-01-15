@@ -192,5 +192,7 @@ docker exec -it cassandra cqlsh
 
 ```
 docker exec -it cassandra nodetool describering simplestrategyreplication
+
+	TokenRange(start_token:-5585902772471025894, end_token:-5584668326996857270, endpoints:[172.17.0.2, 172.17.0.4, 172.17.0.3], rpc_endpoints:[172.17.0.2, 172.17.0.4, 172.17.0.3], endpoint_details:[EndpointDetails(host:172.17.0.2, datacenter:datacenter1, rack:rack1), EndpointDetails(host:172.17.0.4, datacenter:datacenter1, rack:rack1), EndpointDetails(host:172.17.0.3, datacenter:datacenter1, rack:rack1)])
 ```
 
