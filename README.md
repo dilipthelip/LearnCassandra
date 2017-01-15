@@ -187,3 +187,10 @@ KeySpace->Table->Partition->row
 ```
 docker exec -it cassandra cqlsh
 ```
+
+## How to get detailed information about the keySpace and token mapping ?
+
+```
+docker exec -it cassandra nodetool describering simplestrategyreplication
+```
+
