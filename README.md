@@ -52,7 +52,6 @@ Approach 1:
 
 ```
 docker run -dt --name=cassandra cassandra:1.0
-
 ```
 
 Approach 2: Creating a node with data center and Rack.  
@@ -62,7 +61,6 @@ Approach 2: Creating a node with data center and Rack.
 
 ```
 docker run -dt --name=cassandra cassandra:1.0 -dc DC1 -rack RAC1
-
 ```
 
 
