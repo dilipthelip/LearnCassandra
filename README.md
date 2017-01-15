@@ -6,6 +6,9 @@ Cassandra installation is represented by bunch of nodes. Each node is a represen
 
 All data stored in cassandra is associated with a **token**. Token ranges are from -2^63 to 2^63 .Nodes are responsible for storing the token values in to the Cassandra DB.When new modes are added , each node takes care of contiguos set of nodes managing the tokens.  
 
+### Virtual Nodes:
+- Each node in the cluster has a number of virtual nodes. Each vnode takes on a small set of tokens.
+
 ## How Cassandra stores Data ?  
 - Cassandra is a **partitioned row store**.Data are read and written with a partition key.
 - When data is inserted the hash(partition key) is hashed in to the token.  
