@@ -153,7 +153,7 @@ KeySpace->Table->Partition->row
 - Partition is primary interaction point when reading or writing data in to cluster.
 - Data within a parition represented as one or more rows.
 - **Replication Strategy** is determined at the keyspace level.
-  - SimpleStrategy: This is best used in development or single data center clusters.
+  - **SimpleStrategy:** This is best used in development or single data center clusters.  
     **Example CQL:**  - 
     ```
     create keyspace simpleStrategyReplication = 
