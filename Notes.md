@@ -1,5 +1,7 @@
 ## Three nodes cluster - Replication factor as 3 while creating KeySpace:
 
+In this case the **Owns** Column possess the ownership as 100%.
+
 ```
 Datacenter: datacenter1
 =======================
