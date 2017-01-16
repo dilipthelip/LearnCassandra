@@ -225,7 +225,7 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 ### Read Repair :
 -	If client requests with **ALL** as the consistency level then in that case it pulls data from all the replica nodes and determines the latest data and writes it back to the faulty node that does not have the latest data. This will make sure all the replica nodes have the latest data. This is called **Read Repair**.  
 -	If client requests with **Quorum** as the consistency level then in that case it pulls data from majority of the replica nodes and determines the latest data returns it to the client. In the backgrund it double checks the data and repaired the data.
--	It is advisable to run the **nodetool repair** command to often to have the nodes up to date with the data.
+-	It is advisable to run the **nodetool repair** command to often to have the nodes up to date with the data.This will resolve consistency levels.
 
    
 
