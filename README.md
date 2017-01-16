@@ -206,7 +206,13 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 -	Cassandra allows you to maintain the consistency with each statement.
 -	Consistency level can be of the following:
 	-	**ONE :** Coordinator returns success to the caller as soon as one of the acknowledgment is returned from 			the caller. Same is applicable to TWO, THREE based on the number of nodes you have.
-	-	**QUORUM :** Success is returned when majority of the nodes responsible to write the data returns the 	      acknowledgment.
+	-	**QUORUM :** Success is returned when majority of the replica nodes responsible to write the data returns the 	      acknowledgment.
+	-	**ALL :** When all the nodes responds responsible to write the node returns acknowledgement.The write will fail when one of the replica node fails to send the acknowlegment.
+	-	**ANY :** When the write makes it to the coordinator level then its considered as success.
+	
+### Hinted HandOff:
+
+-	
    
 
 
