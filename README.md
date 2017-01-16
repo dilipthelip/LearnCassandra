@@ -216,6 +216,17 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 -	Cassandra uses a strategy **Hinted HandOff** to handle this kind of scenrios. The coordinator node will hold the data and tries repeatedly to deliver the data in to that node.
 	-	When the write is successfull the data is removed from the coordinator node.
 	-	When is write is not successful then the co ordinator node goes down as well. With this there is no way to update the unsuccessful replica node when it comes up. Cassandra has a strategy to work during the read time.
+	
+### Tunable Consistency Reads:
+-	This works as similar to Writes. Consistency level determines how many nodes it is going to interact to pull the latest data out of the nodes and returns it to the client.
+-	It retrieves the data from one node and digest from the other nodes. The exact number is determined by the consistencey level. The callers passes the configuration value to pull the latest value. It could be ONE, TWO, ALL, ANY or QUORUM.
+-	
+
+### Read Repair :
+-	If client requests with **ALL** as the consistency level then in that case it pulls data from all the replica nodes and determines the latest data and writes it back to the faulty node that does not have the latest data. This will make sure all the replica nodes have the latest data. This is called **Read Repair**.  
+-	If client requests with **Quorum** as the consistency level then in that case it pulls data from majority of the replica nodes and determines the latest data returns it to the client. In the backgrund it double checks the data and repaired the data.
+-	It is advisable to run the **nodetool repair** command to often to have the nodes up to date with the data.
+
    
 
 
