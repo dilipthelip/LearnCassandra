@@ -212,7 +212,10 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 	
 ### Hinted HandOff:
 
--	
+-	What will happen when one of the replica node fails to send the acknowledgment.?
+-	Cassandra uses a strategy **Hinted HandOff** to handle this kind of scenrios. The coordinator node will hold the data and tries repeatedly to deliver the data in to that node.
+	-	When the write is successfull the data is removed from the coordinator node.
+	-	When is write is not successful then the co ordinator node goes down as well. With this there is no way to update the unsuccessful replica node when it comes up. Cassandra has a strategy to work during the read time.
    
 
 
