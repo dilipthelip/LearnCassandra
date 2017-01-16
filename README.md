@@ -198,9 +198,14 @@ docker exec -it cassandra nodetool describering simplestrategyreplication
 
 Each node in the Cassandra cluster can function in all the roles required of a cluster.  
 
-### CoOrdinator Node:
+### CO-Ordinator Node:
 -	When a client connects to a cluster the node that it connects will function as a Coordinator Node.For the duration of the operation this facilitaties the communication between the client and the cluster. This node determines which node shold actually store data using the token value that is passed as part of the request. 
 -	Different nodes in the cluster function as a coordinator node for each request.The node that is responsible for storing the data might be the node responsible for storing the data too.
+
+### Tunable Consistency Writes:  
+-	Cassandra allows you to maintain the consistency with each statement.
+-	Consistency level can be of the following:
+	-	ONE : Coordinator returns success to the caller as soon as one of the acknowledgment is returned from the c			 caller.
    
 
 
