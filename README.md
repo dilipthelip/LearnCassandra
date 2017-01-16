@@ -194,3 +194,17 @@ docker exec -it cassandra nodetool describering simplestrategyreplication
 	TokenRange(start_token:-5585902772471025894, end_token:-5584668326996857270, endpoints:[172.17.0.2, 172.17.0.4, 172.17.0.3], rpc_endpoints:[172.17.0.2, 172.17.0.4, 172.17.0.3], endpoint_details:[EndpointDetails(host:172.17.0.2, datacenter:datacenter1, rack:rack1), EndpointDetails(host:172.17.0.4, datacenter:datacenter1, rack:rack1), EndpointDetails(host:172.17.0.3, datacenter:datacenter1, rack:rack1)])
 ```
 
+## Read and Writes in Cassandra:
+
+Each node in the Cassandra cluster can function in all the roles required of a cluster.  
+
+### CoOrdinator Node:
+-	When a client connects to a cluster the node that it connects will function as a Coordinator Node.For the duration of the operation this facilitaties the communication between the client and the cluster. This node determines which node shold actually store data using the token value that is passed as part of the request. 
+-	Different nodes in the cluster function as a coordinator node for each request.The node that is responsible for storing the data might be the node responsible for storing the data too.
+   
+
+
+
+
+
+
