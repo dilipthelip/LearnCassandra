@@ -205,7 +205,7 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 ### Tunable Consistency Writes:  
 -	Cassandra allows you to maintain the consistency with each statement.
 -	Consistency level can be of the following:
-	-	ONE : Coordinator returns success to the caller as soon as one of the acknowledgment is returned from the c			 caller.
+	-	**ONE :** Coordinator returns success to the caller as soon as one of the acknowledgment is returned from 			the caller.
    
 
 
