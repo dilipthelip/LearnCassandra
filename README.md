@@ -228,6 +228,9 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 -	It is advisable to run the **nodetool repair** command to often to have the nodes up to date with the data.This will resolve consistency levels.
 
    
+### Achieveing Strong Consistency:
+-	(Write Consistency + Read Consistency) > Replication Factor : Then in that case this is for achieveing string consistency.
+
 
 
 
