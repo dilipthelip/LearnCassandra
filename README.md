@@ -232,9 +232,9 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 -	(Write Consistency + Read Consistency) > Replication Factor : Then in that case this is for achieveing string consistency.
 
 ### Consistency with Multiple Data Centers:
--	**EACH_QUORUM : ** Ensures Quorum is reached in each Data center before returns the success to the caller during the Write operation.
--	**LOCAL_QUORUM : ** Returns success when the Quorum is reached in the data center where the co ordinator is located.
--	**LOCAL_ONE :	** Only attempts to read from the node where the coordinator node is located.
+-	**EACH_QUORUM :** Ensures Quorum is reached in each Data center before returns the success to the caller during the Write operation.
+-	**LOCAL_QUORUM :** Returns success when the Quorum is reached in the data center where the co ordinator is located.
+-	**LOCAL_ONE :** Only attempts to read from the node where the coordinator node is located.
 
 
 
