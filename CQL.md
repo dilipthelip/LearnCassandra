@@ -87,6 +87,8 @@ varint               :    java.math.BigInteger
 **STRING**  
 ascii,text,varchar   :    java.lang.String  
 
+ascii -> US ASCII character string.  
+
 ### How to check the consistency Level ?
 
 By default the consistency level is ONE.  
