@@ -13,5 +13,4 @@ use simplestrategyreplication;
 
 create table courses (id varchar primary key);
 
-
 ```
