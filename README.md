@@ -277,6 +277,9 @@ tracing ON;
 
 
 
+### How to run the cassandra in local:
+
+[Cassandra Download](http://cassandra.apache.org/download/)  
 
 
 
