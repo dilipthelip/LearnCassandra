@@ -77,3 +77,21 @@ activity                                                                        
 ```
 Tracing off;
 ```
+
+### Scenario - Bring one of the node down:
+
+```
+docker stop cassandra2;
+
+- Set the consistency to ALL.  
+
+consistency ALL;
+
+- Insert the data in to the DB.
+
+cqlsh:simplestrategyreplication> insert into courses (id) values ('groovy2-developers');
+NoHostAvailable:
+
+Since one of the node is down and the inser is not successful
+
+```
