@@ -14,3 +14,11 @@ use simplestrategyreplication;
 create table courses (id varchar primary key);
 
 ```
+
+### How to check the consistency Level ?
+
+By default the consistency level is ONE.  
+
+```
+consistency;
+```
