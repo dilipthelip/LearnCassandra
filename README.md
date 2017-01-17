@@ -1,5 +1,7 @@
 # LearnCassandra
 
+Cassandra is a **distributed NOSQL** database.
+
 Cassandra was originally developed at Facebook. Cassandra combines the distributed model of **Dynamo(Amazon)** and the data model of **Bigtable(Google)**.  
 
 Cassandra installation is represented by bunch of nodes. Each node is a representation of a running instance of Cassandra. Cassandra cluster is a masterless and peer to peer system.  
