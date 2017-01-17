@@ -21,6 +21,12 @@ ALTER keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleSt
 
 After the above statement is run, we need to run the **nodetool repair** to update the cluster with this change.  
 
+**DROP KEYSPACE**
+
+```
+DROP keyspace simplestrategyreplication;
+```
+
 ### How to create table ?
 
 By default the partition is the primary key of the table.
