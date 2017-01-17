@@ -28,8 +28,9 @@ brew install cassandra
 ## How to check Cassandra Version?
 
 ```
-Type "cqlsh"
-
+Step 1:      
+cqlsh
+Step 2:  
 show VERSION
 ```
 
