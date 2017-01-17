@@ -94,4 +94,19 @@ NoHostAvailable:
 
 Since one of the node is down and the inser is not successful
 
+- Selecting a Data
+
+cqlsh:simplestrategyreplication> select * from courses where id ='java-developers';
+
+NoHostAvailable: 
+
+- Change the Consistency
+
+consistency QUORUM;
+
+cqlsh:simplestrategyreplication> insert into courses (id) values ('groovy2-developers');
+
+- Insert was succesful.
+
+
 ```
