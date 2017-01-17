@@ -136,7 +136,7 @@ By default the consistency level is ONE.
 consistency;
 ```
 
-### How to chnage the consistency Level ?
+### How to change the consistency Level ?
 
 The below command will change the consistency to QUORUM.  
 
@@ -148,6 +148,38 @@ consistency QUORUM;
 
 ```
 insert into simplestrategyreplication.courses  (id) values ('cassandra-developers');
+```
+
+### How to update data into the table ?
+
+```
+update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
+```
+
+### How to select data from the table ?
+
+Approach 1:  
+```
+select * from simplestrategyreplication.courses;
+```
+
+Approach 2:  
+Cassandra suppports Alias **AS**  
+```
+select id as name from simplestrategyreplication.courses;
+```
+
+Approach 3:  
+
+**IN** clause.
+```
+select id as name from simplestrategyreplication.courses where id in ('cassandra-developers');
+```
+
+Approach 4:  
+Limit the result to a certain number;  
+```
+select * from simplestrategyreplication.courses LIMIT 100;
 ```
 
 ### How to set Tracing in Cassandra?
