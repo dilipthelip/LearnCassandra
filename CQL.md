@@ -4,14 +4,16 @@
 
 ```
 create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'};
+```
 
-**DURABLE WRITES:**
-This will skip the commit log entry when data is written to the Cassandra DB.  
-
-create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'} AND DURABLE_WRITE S= false;
-
+**DURABLE WRITES:**  
+This will skip the commit log entry when data is written to the Cassandra DB.   
 
 ```
+create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'} AND DURABLE_WRITE S= false;
+```
+
+
 ### How to create table ?
 
 By default the partition is the primary key of the table.
