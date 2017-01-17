@@ -158,6 +158,12 @@ One cannot update the primary key of the table.
 update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
 ```
 
+Multiple partition update is also possible.  
+```
+update  simplestrategyreplication.courses set author ='java-developers' where id =('cassandra-developers','oracle-developers');
+
+```
+
 ### How to select data from the table ?
 
 Approach 1:  
