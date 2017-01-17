@@ -78,7 +78,7 @@ create table simplestrategyreplication.courses (id varchar primary key) WITH com
 ### Data Types in Cassandra:
 
 Cassandra Data Type  :   Java Compatible  
-**NUMERIC**
+**NUMERIC**  
 bigint               :      long  
 decimal              :    java.math.BigDecimal   
 double,float,int     :    java Equivalents  
