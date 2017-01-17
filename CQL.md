@@ -147,12 +147,12 @@ consistency QUORUM;
 ### How to insert data into the table ?
 
 ```
-insert into simplestrategyreplication.courses  (id) values ('cassandra-developers');
+insert into simplestrategyreplication.courses  (id) values ('cassandra-developers','xyz','author1');
 ```
 
 ### How to update data into the table ?
 
-One cannot update the primary key of the table.  
+One cannot update the **primary key** of the table.  
 
 ```
 update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
@@ -163,6 +163,25 @@ Multiple partition update is also possible.
 update  simplestrategyreplication.courses set author ='java-developers' where id =('cassandra-developers','oracle-developers');
 
 ```
+
+### How to delete data from the table ?
+
+**DELETE ROW:**  
+
+```
+delete from simplestrategyreplication.courses where id ='cassandra-developers';
+```
+
+**DELETE COLUMN**    
+
+```
+DELETE author from simplestrategyreplication.courses where id ='cassandra-developers';
+```
+
+```
+update  simplestrategyreplication.courses set author ='null' where id =('cassandra-developers');
+```
+
 
 ### How to select data from the table ?
 
@@ -199,7 +218,28 @@ select id , writetime(author) from simplestrategyreplication.courses;
 ----------------------+-------------------
  cassandra-developers |  1484686747503022
 ```
-The unix time of the date was written is returned.  
+The unix time of the date was written is returned. 
+
+### Time to Live (TTL): 
+
+The TTL value determines the time it is going to live in the database.The value corresponds to seconds.    
+
+**SET ROW LEVEL TTL**  
+
+```
+insert into simplestrategyreplication.courses  (id,author) values ('cassandra-developers','xyz') USING TTL 32400;
+```
+
+**SET TABLE LEVEL TTL**  
+
+```
+CREATE TABLE simplestrategyreplication.courses(
+id varchar PRIMARY KEY,
+title varchar,
+author varchar
+) WITH default_time_to_live = 10800;
+
+```
 
 ### How to set Tracing in Cassandra?
 
