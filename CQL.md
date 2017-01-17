@@ -36,7 +36,6 @@ Approach 1:
 use simplestrategyreplication;
 
 create table courses (id varchar primary key);
-
 ```
 
 Approach 2:  
@@ -44,6 +43,38 @@ Approach 2:
 create table simplestrategyreplication.courses (id varchar primary key);
 
 ```
+
+**ALTER TABLE:**
+
+Add a Column:  
+```
+ALTER TABLE simplestrategyreplication.courses ADD NAME VARCHAR;
+```
+
+ Drop a Column:  
+ 
+ ```
+ ALTER TABLE simplestrategyreplication.courses DROP NAME;
+ ```
+ 
+ Removing all the data:  
+ 
+ ```
+ TRUNCATE simplestrategyreplication.courses;
+ ```
+ 
+ **DROP TABLE:**  
+ 
+ ```
+ DROP TABLE simplestrategyreplication.courses;
+ ```
+
+**TABLE PROPERTIES:**  
+
+```
+create table simplestrategyreplication.courses (id varchar primary key) WITH comment =' A Table of Courses';
+```
+
 
 ### How to check the consistency Level ?
 
