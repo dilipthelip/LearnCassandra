@@ -89,6 +89,38 @@ ascii,text,varchar   :    java.lang.String
 
 ascii -> US ASCII character string.  
 
+**Date**  
+timestamp.timeuuid  
+
+**Other**  
+boolean,uuid,inet,blob  
+
+**Primary Key and Partition Key :**
+
+Primary key column is also used as a partition key for the column.   
+
+```
+CREATE TABLE simplestrategyreplication.courses(
+id varchar PRIMARY KEY,
+title varchar,
+author varchar
+);
+
+```
+
+**COMPOSITE PRIMARY KEY:**  
+```
+CREATE TABLE simplestrategyreplication.courses(
+id varchar ,
+title varchar,
+author varchar
+PRIMARY KEY ((id, author));
+);
+```
+
+With the above table structures there is going to be ony one row present per partition.The primary key determines how many rows a single partition is going to hold.  
+
+
 ### How to check the consistency Level ?
 
 By default the consistency level is ONE.  
