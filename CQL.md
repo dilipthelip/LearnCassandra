@@ -83,7 +83,8 @@ bigint               :      long
 decimal              :    java.math.BigDecimal   
 double,float,int     :    java Equivalents  
 varint               :    java.math.BigInteger  
-**STRING**
+
+**STRING**  
 ascii,text,varchar   :    java.lang.String  
 
 ### How to check the consistency Level ?
