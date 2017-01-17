@@ -19,6 +19,8 @@ create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleS
 ALTER keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'4'};
 ```
 
+After the above statement is run, we need to run the **nodetool repair** to update the cluster with this change.  
+
 ### How to create table ?
 
 By default the partition is the primary key of the table.
