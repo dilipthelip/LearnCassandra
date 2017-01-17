@@ -30,10 +30,18 @@ DROP keyspace simplestrategyreplication;
 ### How to create table ?
 
 By default the partition is the primary key of the table.
+
+Approach 1:  
 ```
 use simplestrategyreplication;
 
 create table courses (id varchar primary key);
+
+```
+
+Approach 2:  
+```
+create table simplestrategyreplication.courses (id varchar primary key);
 
 ```
 
