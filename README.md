@@ -243,6 +243,8 @@ nodetool pausehandoff;
 docker stop cassandra2;
 
 ```
+
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Read_Repair.png)
    
 ### Achieveing Strong Consistency:
 -	(Write Consistency + Read Consistency) > Replication Factor : Then in that case this is for achieveing string consistency.
