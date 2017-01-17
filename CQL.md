@@ -152,6 +152,8 @@ insert into simplestrategyreplication.courses  (id) values ('cassandra-developer
 
 ### How to update data into the table ?
 
+One cannot update the primary key of the table.  
+
 ```
 update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
 ```
