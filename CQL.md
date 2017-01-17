@@ -75,6 +75,12 @@ ALTER TABLE simplestrategyreplication.courses ADD NAME VARCHAR;
 create table simplestrategyreplication.courses (id varchar primary key) WITH comment =' A Table of Courses';
 ```
 
+### Data Types in Cassandra:
+
+Cassandra Data Type  :   Java Compatible   
+bigint               :      long  
+decimal              :    java.math.BigDecimal  
+
 
 ### How to check the consistency Level ?
 
