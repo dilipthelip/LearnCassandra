@@ -147,7 +147,7 @@ consistency QUORUM;
 ### How to insert data into the table ?
 
 ```
-insert into courses (id) values ('cassandra-developers');
+insert into simplestrategyreplication.courses  (id) values ('cassandra-developers');
 ```
 
 ### How to set Tracing in Cassandra?
