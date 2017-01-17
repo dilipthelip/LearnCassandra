@@ -77,12 +77,14 @@ create table simplestrategyreplication.courses (id varchar primary key) WITH com
 
 ### Data Types in Cassandra:
 
-Cassandra Data Type  :   Java Compatible   
+Cassandra Data Type  :   Java Compatible  
+**NUMERIC**
 bigint               :      long  
 decimal              :    java.math.BigDecimal   
 double,float,int     :    java Equivalents  
 varint               :    java.math.BigInteger  
-
+**STRING**
+ascii,text,varchar   :    java.lang.String  
 
 ### How to check the consistency Level ?
 
