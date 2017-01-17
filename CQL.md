@@ -13,6 +13,11 @@ This will skip the commit log entry when data is written to the Cassandra DB.
 create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'} AND DURABLE_WRITE S= false;
 ```
 
+**ALTER KEYSPACE:**  
+
+```
+ALTER keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'4'};
+```
 
 ### How to create table ?
 
