@@ -1,5 +1,12 @@
 ## CQL ( Cassandra Query Language)
 
+### How to launch cqlsh?
+This is a command line tool to execute the CQL statements.  
+
+```
+cqlsh
+```
+
 ### How to create KeySpace?
 
 ```
