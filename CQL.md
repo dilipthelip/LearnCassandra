@@ -190,6 +190,17 @@ Limit the result to a certain number;
 select * from simplestrategyreplication.courses LIMIT 100;
 ```
 
+### When the data was inserted?  
+
+```
+select id , writetime(author) from simplestrategyreplication.courses;
+
+ id                   | writetime(author)
+----------------------+-------------------
+ cassandra-developers |  1484686747503022
+```
+The unix time of the date was written is returned.  
+
 ### How to set Tracing in Cassandra?
 
 ```
