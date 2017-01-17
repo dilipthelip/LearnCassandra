@@ -71,3 +71,9 @@ activity                                                                        
                                Processing response from /172.17.0.3 [RequestResponseStage-12] | 2017-01-17 10:42:43.654000 | 172.17.0.2 |         276099 | 127.0.0.1
                                                                              Request complete | 2017-01-17 10:42:43.897540 | 172.17.0.2 |         511540 | 127.0.0.1
 ```
+
+### How to turn OFF tracing ?
+
+```
+Tracing off;
+```
