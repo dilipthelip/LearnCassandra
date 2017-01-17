@@ -290,6 +290,6 @@ bin/cassandra
 
 This will launch cassandra in your local.  
 
-
+[Cql Wiki](https://github.com/dilipthelip/LearnCassandra/blob/master/CQL.md)
 
 
