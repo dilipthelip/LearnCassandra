@@ -42,6 +42,9 @@ insert into courses (id) values ('cassandra-developers');
 ```
 Tracing on;
 
+-        Co-ordinator Node. ( Execute CQL3 query | 2017-01-17 10:42:43.386000 | 172.17.0.2 | 0 | 127.0.0.1)
+
+
 activity                                                                                     | timestamp                  | source     | source_elapsed | client
 ----------------------------------------------------------------------------------------------+----------------------------+------------+----------------+-----------
                                                                            Execute CQL3 query | 2017-01-17 10:42:43.386000 | 172.17.0.2 |              0 | 127.0.0.1
