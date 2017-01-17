@@ -282,5 +282,14 @@ tracing ON;
 [Cassandra Download](http://cassandra.apache.org/download/)  
 
 
+Navigate to the path where cassandra is downloaded.  
+
+```
+bin/cassandra
+```
+
+This will launch cassandra in your local.  
+
+
 
 
