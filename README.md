@@ -275,6 +275,9 @@ tracing ON;
 -	**LOCAL_QUORUM :** Returns success when the Quorum is reached in the data center where the co ordinator is located.
 -	**LOCAL_ONE :** Only attempts to read from the node where the coordinator node is located.
 
+### TombStone:
+-	When a delete command is triggered , basically a tombstone is written to the database.Tombstone is nothing but the partition data.It supports hinted hand off , Read Repair and everything.  
+-	The frequency of purging tombstones is maintained by gc_grace_seconds.  
 
 
 ### How to run the cassandra in local:
