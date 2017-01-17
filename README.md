@@ -242,6 +242,24 @@ nodetool pausehandoff;
 
 docker stop cassandra2;
 
+- Insert a row in to the table
+
+cqlsh:simplestrategyreplication> insert into courses (id) values ('groovy2-developers');
+
+- docker start <name of the container>
+
+- Set the consistency to ALL
+
+consistency ALL;
+
+- Set tracing to ON;
+
+tracing ON;
+
+- Run a select statement.
+
+- Look for Digest Mismatch in the Tracing output.
+
 ```
 
 ![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Read_Repair.png)
