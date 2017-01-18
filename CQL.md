@@ -82,6 +82,12 @@ ALTER TABLE simplestrategyreplication.courses ADD NAME VARCHAR;
 create table simplestrategyreplication.courses (id varchar primary key) WITH comment =' A Table of Courses';
 ```
 
+### How to check the list of tables in the cassandra Cluster;
+
+```
+desc TABLES;
+```
+
 ### Data Types in Cassandra:
 
 Cassandra Data Type  :   Java Compatible  
@@ -239,6 +245,11 @@ title varchar,
 author varchar
 ) WITH default_time_to_live = 10800;
 
+```
+### How to Expand the resultset in Cassandra?
+
+```
+expand on;
 ```
 
 ### How to set Tracing in Cassandra?
