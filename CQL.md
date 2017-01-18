@@ -262,7 +262,7 @@ update collectiontest set features=  features - ['cd'] where  id ='node-intro';
 If the use case is to rememeber previously logged in devices.Map datatype works like a charm in this case.  
 
 ```
-drop collectiontest; 
+drop table collectiontest; 
 
 CREATE TABLE collectiontest (
 id varchar,
