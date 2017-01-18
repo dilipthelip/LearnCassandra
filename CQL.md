@@ -284,6 +284,10 @@ author is a static column in the below statement an it can be part of it.
 select distinct id, author from courses;
 ```
 
+### Time Series Data:
+
+
+
 ### When the data was inserted?  
 
 ```
