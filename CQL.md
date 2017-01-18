@@ -174,7 +174,7 @@ boolean,uuid,inet,blob
 CREATE TABLE collectiontest (
 id varchar,
 module_id int,
-name static,
+name varchar static,
 features set<varchar> static,
 PRIMARY KEY (id,module_id)
 );
@@ -183,7 +183,7 @@ PRIMARY KEY (id,module_id)
 
 SET Insert:  
 ```
-Insert in to collectiontest (id, module_id,name,features) VALUES
+Insert into collectiontest (id, module_id,name,features) VALUES
 ('node-intro',1,'introduction to node',{'CC'});
 ```
 
@@ -207,10 +207,12 @@ update collectiontest set features={} where  id ='node-intro';
 #### LIST:
 
 ```
+drop collectiontest; 
+
 CREATE TABLE collectiontest (
 id varchar,
 module_id int,
-name static,
+name varchar static,
 features list<varchar> static,
 PRIMARY KEY (id,module_id)
 );
@@ -219,7 +221,7 @@ PRIMARY KEY (id,module_id)
 LIST Insert:  
 Insert using square brackets '['
 ```
-Insert in to collectiontest (id, module_id,name,features) VALUES
+Insert into collectiontest (id, module_id,name,features) VALUES
 ('node-intro',1,'introduction to node',['CC']); 
 ```
 
@@ -245,7 +247,7 @@ LIST Update by Index  :
 
 
 ```
-update collectiontest set features[10] = ['abc'] where  id ='node-intro';
+update collectiontest set features[0] = 'abc' where  id ='node-intro';
 ```
 
 Manipulating a LIST by element id (Append) :  
