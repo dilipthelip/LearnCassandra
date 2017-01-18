@@ -1,0 +1,51 @@
+--create and use keyspace
+DROP KEYSPACE IF EXISTS learnCassandra;
+
+CREATE KEYSPACE learncassandra WITH REPLICATION  = {'class':'SimpleStrategy','replication_factor':1};
+
+USE learnCassandra;
+
+--CREATE COURSES TABLE
+
+CREATE TABLE COURSES (
+ID VARCHAR PRIMARY KEY,
+NAME VARCHAR,
+AUTHOR VARCHAR,
+AUDIENCE INT,
+DURATION INT,
+CC BOOLEAN,
+RELEASED TIMESTAMP,
+) WITH COMMENT = 'A Table of Courses';
+
+CREATE TABLE USERS(
+ID VARCHAR PRIMARY KEY,
+FIRST_NAME VARCHAR,
+LAST_NAME VARCHAR,
+EMAIL VARCHAR,
+PASSWORD VARCHAR
+) WITH COMMENT =  'A Table of Users';
+
+-- Sample Data for users table:
+INSERT INTO USERS (ID, FIRST_NAME, LAST_NAME)
+VALUES ('John1','John','Doe');
+
+UPDATE USERS SET FIRST_NAME='JANE',LAST_NAME='DOE' WHERE ID='JANE1';
+
+ALTER TABLE  USERS ADD RESET_TOKEN VARCHAR;
+
+-- Sample Data for courses Table
+
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED)
+VALUES ('AngularJS-Get-Started','AngularJS : Get Started', 'Scott Alen', 1,10560,true,'2014-06-05' );
+
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED)
+VALUES ('node-intro','nodeJS : Introduction', 'Paul Alen', 2,10580,true,'2012-12-19' );
+
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED)
+VALUES ('advanced-JS','Advanced JavaScript', 'Kyle Simpson', 2,24900,true,'2015-04-09' );
+
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED)
+VALUES ('docker-fundamentals','Docker Fundamentals', 'Adron Hall', 2,3780,true,'2014-01-10' );
+
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED)
+VALUES ('raspberry-pi-for-developers','Raspberry Pi for Developers', 'Jon Flanders', 2,8640,true,'2013-05-30  ' );
