@@ -281,6 +281,41 @@ Insert into collectiontest (id, module_id,name,last_login) VALUES
 ('node-intro',1,'introduction to node',{'tab':'2017-01-15 14:57:03'}); 
 ```
 
+Map update:  
+
+```
+update collectiontest set last_login['tab']= '2017-01-15 15:57:03'  where  id ='node-intro';
+```
+
+Map Update using TTL:  
+
+```
+update collectiontest using TTL 3200 
+set last_login['tab']= '2017-01-15 15:57:03'  where  id ='node-intro';
+
+```
+
+Map Add a new Key:  
+
+```
+update collectiontest set last_login = last_login + {'laptop':'2017-01-15 14:57:03'}  where  id ='node-intro';
+```
+
+Map Delete:  
+
+```
+delete last_login['tab']  from collectiontest  where  id ='node-intro';
+```
+```
+update collectiontest set last_login = last_login -  {'laptop'}  where  id ='node-intro';
+```
+
+Deleting an entire map:  
+```
+update collectiontest set last_login = {}  where  id ='node-intro';
+ 
+```
+
 
 **Primary Key and Partition Key :**
 
