@@ -284,8 +284,56 @@ author is a static column in the below statement an it can be part of it.
 select distinct id, author from courses;
 ```
 
-### Time Series Data:
+### Time Series Data:    
 
+**TIMEUUID :**  
+
+http://docs.datastax.com/en/archived/cql/3.0/cql/cql_reference/uuid_type_r.html?hl=timeuuid  
+
+```
+CREATE TABLE COURSE_PAGE_VIEWS(
+COURSE_ID VARCHAR,
+VIEW_ID TIMEUUID,
+PRIMARY KEY (COURSE_ID,VIEW_ID)
+) WITH CLUSTERING ORDER BY (VIEW_ID DESC);
+
+--SAMPLE INSERTS
+
+INSERT INTO COURSE_PAGE_VIEWS(COURSE_ID,VIEW_ID)
+VALUES ('NODE-INTRO', now());
+
+INSERT INTO COURSE_PAGE_VIEWS(COURSE_ID,VIEW_ID)
+VALUES ('NODE-INTRO', now());
+
+INSERT INTO COURSE_PAGE_VIEWS(COURSE_ID,VIEW_ID)
+VALUES ('NODE-INTRO', now());
+
+```
+
+
+**DATE:**  
+
+```
+select dateOf(view_id) from COURSE_PAGE_VIEWS;
+
+ system.dateof(view_id)
+---------------------------------
+ 2017-01-18 14:37:06.021000+0000
+ 2017-01-18 14:37:04.160000+0000
+ 2017-01-18 14:37:04.156000+0000
+```
+
+**maxTimeUUID and minTimeUUID:**  
+
+**>=** and **>** have the same effect.  
+
+```
+select dateOf(view_id) from COURSE_PAGE_VIEWS 
+where COURSE_ID = 'NODE-INTRO' 
+and view_id >= maxTimeuuid('2017-01-18 00:00+0000')
+and view_id <= minTimeuuid('2017-01-19 00:00+0000') ;
+
+```
 
 
 ### When the data was inserted?  
