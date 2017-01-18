@@ -146,7 +146,7 @@ PRIMARY KEY(id,module_id)
 desc TABLES;
 ```
 
-### Data Types in Cassandra:
+### DataTypes in Cassandra:
 
 Cassandra Data Type  :   Java Compatible  
 **NUMERIC**  
@@ -165,6 +165,96 @@ timestamp.timeuuid
 
 **Other**  
 boolean,uuid,inet,blob  
+
+### Complex DataTypes in Cassandra:
+
+#### SET:
+
+```
+CREATE TABLE collectiontest (
+id varchar,
+module_id int,
+name static,
+features set<varchar> static,
+PRIMARY KEY (id,module_id)
+);
+```
+
+
+SET Insert:  
+```
+Insert in to collectiontest (id, module_id,name,features) VALUES
+('node-intro',1,'introduction to node',{'CC'});
+```
+
+SET Update Add :  
+```
+update collectiontest set features=features + {'cd'} where  id ='node-intro';
+```
+
+SET Update Remove :  
+```
+update collectiontest set features=features - {'cd'} where  id ='node-intro';
+
+```
+
+Empty entire SET:  
+```
+update collectiontest set features={} where  id ='node-intro';
+
+```
+
+#### LIST:
+
+```
+CREATE TABLE collectiontest (
+id varchar,
+module_id int,
+name static,
+features list<varchar> static,
+PRIMARY KEY (id,module_id)
+);
+```
+
+LIST Insert:  
+Insert using square brackets '['
+```
+Insert in to collectiontest (id, module_id,name,features) VALUES
+('node-intro',1,'introduction to node',['CC']); 
+```
+
+LIST Update Add (Prepend) :   
+```
+update collectiontest set features=  ['cd']  + features  where  id ='node-intro';
+```
+
+LIST Update Add (Append) :   
+```
+update collectiontest set features=  features + ['cd'] where  id ='node-intro';
+```
+
+LIST Update Remove (Append) :  
+
+Same string appears multiple times  in the list will also be removed.  
+
+```
+update collectiontest set features=  features - ['cd'] where  id ='node-intro';
+```
+
+LIST Update by Index  :  
+
+
+```
+update collectiontest set features[10] = ['abc'] where  id ='node-intro';
+```
+
+Manipulating a LIST by element id (Append) :  
+
+Same string appears multiple times  in the list will also be removed.  
+
+```
+update collectiontest set features=  features - ['cd'] where  id ='node-intro';
+```
 
 **Primary Key and Partition Key :**
 
