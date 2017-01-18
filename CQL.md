@@ -226,6 +226,20 @@ select id , writetime(author) from simplestrategyreplication.courses;
 ```
 The unix time of the date was written is returned. 
 
+### Token value of the row ?
+
+```
+cqlsh:learncassandra> select id, token(id) from courses;
+
+ id                          | system.token(id)
+-----------------------------+----------------------
+       AngularJS-Get-Started | -1307076543347084026
+                  node-intro |  1230314183812605664
+ raspberry-pi-for-developers |  1510057717685901069
+                 advanced-JS |  3078562638948418255
+         docker-fundamentals |  3390654573743950459
+```
+
 ### Time to Live (TTL): 
 
 The TTL value determines the time it is going to live in the database.The value corresponds to seconds.    
