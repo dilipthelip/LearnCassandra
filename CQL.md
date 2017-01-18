@@ -82,6 +82,43 @@ ALTER TABLE simplestrategyreplication.courses ADD NAME VARCHAR;
 create table simplestrategyreplication.courses (id varchar primary key) WITH comment =' A Table of Courses';
 ```
 
+### How to create a composite primary key ?
+
+Approach 1:  
+
+In the below scenario it is a combination of **Primary key(partition_key, clustering_key)**. These together make a composite primary key.  
+
+```
+CREATE TABLE COURSES (
+ID VARCHAR ,
+NAME VARCHAR,
+AUTHOR VARCHAR,
+AUDIENCE INT,
+DURATION INT,
+CC BOOLEAN,
+RELEASED TIMESTAMP,
+MODULE_ID int,
+MODULE_NAME varchar,
+MODULE_DURATION int,
+PRIMARY KEY(id,module_id)
+) WITH COMMENT = 'A Table of Courses and modules';
+```
+
+Approach 2:  
+```
+PRIMARY KEY (P_KEY, C_key1,...Ckey_N);
+```
+Approach 3:  
+```
+PRIMARY KEY ((P_KEY1,...P_KEY_N), C_key1,...Ckey_N);
+
+```
+
+Approach 4:
+```
+PRIMARY KEY ((P_KEY1,...P_KEY_N))
+```
+
 ### How to check the list of tables in the cassandra Cluster;
 
 ```
