@@ -288,7 +288,12 @@ select distinct id, author from courses;
 
 **TIMEUUID :**  
 
+It comprises : 
 http://docs.datastax.com/en/archived/cql/3.0/cql/cql_reference/uuid_type_r.html?hl=timeuuid  
+
+**Functions:**  
+
+https://docs.datastax.com/en/cql/3.3/cql/cql_reference/timeuuid_functions_r.html
 
 ```
 CREATE TABLE COURSE_PAGE_VIEWS(
