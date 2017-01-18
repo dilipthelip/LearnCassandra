@@ -254,8 +254,18 @@ insert into simplestrategyreplication.courses  (id,author) values ('cassandra-de
 
 APPROACH 2:  
 
+The below statement is to have the value set for few seconds as mentioned in the TTL and expires after that.   
+
 ```
-UPDATE USERS SET TTL 120 SET RESET_TOKEN='abc123' where id ='John1';
+UPDATE USERS USING TTL 120 SET RESET_TOKEN='abc123' where id ='John1';
+
+SELECT TTL(RESET_TOKEN) from USERS where id ='John1';
+
+cqlsh:learncassandra> SELECT TTL(RESET_TOKEN) from USERS where id ='John1';
+
+ ttl(reset_token)
+------------------
+              114
 ```
 
 
