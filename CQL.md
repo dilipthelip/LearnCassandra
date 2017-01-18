@@ -219,7 +219,7 @@ PRIMARY KEY (id,module_id)
 ```
 
 LIST Insert:  
-Insert using square brackets '['
+Insert using square brackets '['  
 ```
 Insert into collectiontest (id, module_id,name,features) VALUES
 ('node-intro',1,'introduction to node',['CC']); 
@@ -257,6 +257,30 @@ Same string appears multiple times  in the list will also be removed.
 ```
 update collectiontest set features=  features - ['cd'] where  id ='node-intro';
 ```
+#### MAP:
+
+If the use case is to rememeber previously logged in devices.Map datatype works like a charm in this case.  
+
+```
+drop collectiontest; 
+
+CREATE TABLE collectiontest (
+id varchar,
+module_id int,
+name varchar static,
+last_login map<varchar,timestamp> ,
+PRIMARY KEY (id,module_id)
+);
+```
+
+Map Insert:  
+Inserting a key value pair is like inserting a Json Object.  
+
+```
+Insert into collectiontest (id, module_id,name,last_login) VALUES
+('node-intro',1,'introduction to node',{'tab':'2017-01-15 14:57:03'}); 
+```
+
 
 **Primary Key and Partition Key :**
 
