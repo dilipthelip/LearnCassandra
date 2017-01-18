@@ -276,7 +276,7 @@ tracing ON;
 
 ### TombStone:
 -	When a delete command is triggered , basically a tombstone is written to the database.Tombstone is nothing but the partition data.It supports hinted hand off , Read Repair and everything.  
--	The frequency of purging tombstones is maintained by gc_grace_seconds.This property can be specified on per table basis.  
+-	The frequency of purging tombstones is maintained by gc_grace_seconds.This property can be specified on per table basis.The default is 10 days.  
 
 ### How to run the cassandra in local:
 
