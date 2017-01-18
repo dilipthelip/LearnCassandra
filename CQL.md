@@ -119,6 +119,27 @@ Approach 4:
 PRIMARY KEY ((P_KEY1,...P_KEY_N))
 ```
 
+### Static Columns:
+
+These are used when you have a static content that is going to get repeated in a partition.This column will always hold the same value for each row in the partition.    
+
+```
+CREATE TABLE COURSES (
+ID VARCHAR ,
+NAME VARCHAR,
+AUTHOR VARCHAR **STATIC**,
+AUDIENCE INT,
+DURATION INT,
+CC BOOLEAN,
+RELEASED TIMESTAMP,
+MODULE_ID int,
+MODULE_NAME varchar,
+MODULE_DURATION int,
+PRIMARY KEY(id,module_id)
+) WITH COMMENT = 'A Table of Courses and modules';
+
+```
+
 ### How to check the list of tables in the cassandra Cluster;
 
 ```
