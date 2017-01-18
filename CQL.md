@@ -127,7 +127,7 @@ These are used when you have a static content that is going to get repeated in a
 CREATE TABLE COURSES (
 ID VARCHAR ,
 NAME VARCHAR,
-AUTHOR VARCHAR **STATIC**,
+AUTHOR VARCHAR STATIC,
 AUDIENCE INT,
 DURATION INT,
 CC BOOLEAN,
@@ -271,6 +271,17 @@ Approach 4:
 Limit the result to a certain number;  
 ```
 select * from simplestrategyreplication.courses LIMIT 100;
+```
+
+#### Distinct Keyword:
+
+The Disinct keyword should only be applied to partiotin key columns and static columns.  
+
+The primary key column should always be a part of the select statement.  
+author is a static column in the below statement an it can be part of it.  
+
+```
+select distinct id, author from courses;
 ```
 
 ### When the data was inserted?  
