@@ -246,9 +246,19 @@ The TTL value determines the time it is going to live in the database.The value 
 
 **SET ROW LEVEL TTL**  
 
+APPROACH 1:  
+
 ```
 insert into simplestrategyreplication.courses  (id,author) values ('cassandra-developers','xyz') USING TTL 32400;
 ```
+
+APPROACH 2:  
+
+```
+UPDATE USERS SET TTL 120 SET RESET_TOKEN='abc123' where id ='John1';
+```
+
+
 
 **SET TABLE LEVEL TTL**  
 
