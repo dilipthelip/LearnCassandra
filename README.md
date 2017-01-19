@@ -238,6 +238,8 @@ docker exec -it cassandra nodetool describering simplestrategyreplication
 
 Each node in the Cassandra cluster can function in all the roles required of a cluster.  
 
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Reads_Writes.png)
+
 ### CO-Ordinator Node:
 -	When a client connects to a cluster the node that it connects will function as a Coordinator Node.For the duration of the operation this facilitaties the communication between the client and the cluster. This node determines which node shold actually store data using the token value that is passed as part of the request. 
 -	Different nodes in the cluster function as a coordinator node for each request.The node that is responsible for storing the data might be the node responsible for storing the data too.
