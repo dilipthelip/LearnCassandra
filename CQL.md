@@ -105,6 +105,8 @@ PRIMARY KEY(id,module_id)
 ```
 
 Approach 2:  
+
+Compound Key - https://docs.datastax.com/en/cql/3.1/cql/ddl/ddl_compound_keys_c.html  
 ```
 PRIMARY KEY (P_KEY, C_key1,...Ckey_N);
 ```
