@@ -183,6 +183,8 @@ update  simplestrategyreplication.courses set author ='java-developers' where id
 
 **DELETE ROW:**  
 
+You always need a primary key column in the where statement to deleta a row from the table.  
+
 ```
 delete from simplestrategyreplication.courses where id ='cassandra-developers';
 ```
