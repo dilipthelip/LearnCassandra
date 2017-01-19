@@ -44,6 +44,21 @@ brew install cassandra
 
 ```
 
+### Manual install of cassandra in local:
+
+[Cassandra Download](http://cassandra.apache.org/download/)  
+
+
+Navigate to the path where cassandra is downloaded.  
+
+```
+bin/cassandra
+```
+
+This will launch cassandra in your local.  
+
+[Cql Wiki](https://github.com/dilipthelip/LearnCassandra/blob/master/CQL.md)
+
 ## How to check Cassandra Version?
 
 ```
@@ -297,19 +312,6 @@ tracing ON;
 -	When a delete command is triggered , basically a tombstone is written to the database.Tombstone is nothing but the partition data.It supports hinted hand off , Read Repair and everything.  
 -	The frequency of purging tombstones is maintained by gc_grace_seconds.This property can be specified on per table basis.The default is 10 days.  
 
-### Manual install of cassandra in local:
 
-[Cassandra Download](http://cassandra.apache.org/download/)  
-
-
-Navigate to the path where cassandra is downloaded.  
-
-```
-bin/cassandra
-```
-
-This will launch cassandra in your local.  
-
-[Cql Wiki](https://github.com/dilipthelip/LearnCassandra/blob/master/CQL.md)
 
 
