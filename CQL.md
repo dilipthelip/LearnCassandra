@@ -120,6 +120,7 @@ create table learncassandra.courses (id varchar primary key) WITH comment =' A T
 
 ### How to create a composite primary key ?
 
+The structure of the primary has a significant effect on how many rows a single partition is going to hold.  
 Approach 1:  
 
 In the below scenario it is a combination of **Primary key(partition_key, clustering_key)**. These together make a composite primary key.  
@@ -155,13 +156,93 @@ PRIMARY KEY ((P_KEY1,...P_KEY_N), C_key1,...Ckey_N);
 Approach 4:
 ```
 PRIMARY KEY ((P_KEY1,...P_KEY_N))
+
 ```
+
+### How to insert data into the table ?
+
+```
+insert into simplestrategyreplication.courses  (id) values ('cassandra-developers','xyz','author1');
+```
+
+### How to update data into the table ?
+
+One cannot update the **primary key** of the table.  
+
+```
+update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
+```
+
+Multiple partition update is also possible.  
+```
+update  simplestrategyreplication.courses set author ='java-developers' where id =('cassandra-developers','oracle-developers');
+
+```
+
+### How to delete data from the table ?
+
+**DELETE ROW:**  
+
+```
+delete from simplestrategyreplication.courses where id ='cassandra-developers';
+```
+
+**DELETE COLUMN**    
+
+```
+DELETE author from simplestrategyreplication.courses where id ='cassandra-developers';
+```
+
+```
+update  simplestrategyreplication.courses set author ='null' where id =('cassandra-developers');
+```
+
+
+### How to select data from the table ?
+
+Approach 1:  
+```
+select * from simplestrategyreplication.courses;
+```
+
+Approach 2:  
+Cassandra suppports Alias **AS**  
+```
+select id as name from simplestrategyreplication.courses;
+```
+
+Approach 3:  
+
+**IN** clause.
+```
+select id as name from simplestrategyreplication.courses where id in ('cassandra-developers');
+```
+
+Approach 4:  
+Limit the result to a certain number;  
+```
+select * from simplestrategyreplication.courses LIMIT 100;
+```
+
+#### Distinct Keyword:
+
+The Disinct keyword should only be applied to partiotin key columns and static columns.  
+
+The primary key column should always be a part of the select statement.  
+author is a static column in the below statement an it can be part of it.  
+
+```
+select distinct id, author from courses;
+```
+
 
 ### Static Columns:
 
 These are used when you have a static content that is going to get repeated in a partition.This column will always hold the same value for each row in the partition.    
 
 ```
+drop table courses; 
+
 CREATE TABLE COURSES (
 ID VARCHAR ,
 NAME VARCHAR,
@@ -449,81 +530,6 @@ The below command will change the consistency to QUORUM.
 consistency QUORUM;
 ```
 
-### How to insert data into the table ?
-
-```
-insert into simplestrategyreplication.courses  (id) values ('cassandra-developers','xyz','author1');
-```
-
-### How to update data into the table ?
-
-One cannot update the **primary key** of the table.  
-
-```
-update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
-```
-
-Multiple partition update is also possible.  
-```
-update  simplestrategyreplication.courses set author ='java-developers' where id =('cassandra-developers','oracle-developers');
-
-```
-
-### How to delete data from the table ?
-
-**DELETE ROW:**  
-
-```
-delete from simplestrategyreplication.courses where id ='cassandra-developers';
-```
-
-**DELETE COLUMN**    
-
-```
-DELETE author from simplestrategyreplication.courses where id ='cassandra-developers';
-```
-
-```
-update  simplestrategyreplication.courses set author ='null' where id =('cassandra-developers');
-```
-
-
-### How to select data from the table ?
-
-Approach 1:  
-```
-select * from simplestrategyreplication.courses;
-```
-
-Approach 2:  
-Cassandra suppports Alias **AS**  
-```
-select id as name from simplestrategyreplication.courses;
-```
-
-Approach 3:  
-
-**IN** clause.
-```
-select id as name from simplestrategyreplication.courses where id in ('cassandra-developers');
-```
-
-Approach 4:  
-Limit the result to a certain number;  
-```
-select * from simplestrategyreplication.courses LIMIT 100;
-```
-
-#### Distinct Keyword:
-
-The Disinct keyword should only be applied to partiotin key columns and static columns.  
-
-The primary key column should always be a part of the select statement.  
-author is a static column in the below statement an it can be part of it.  
-
-```
-select distinct id, author from courses;
-```
 
 ### Time Series Data:    
 
