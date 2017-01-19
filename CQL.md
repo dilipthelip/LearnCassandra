@@ -323,6 +323,32 @@ update collectiontest set last_login = {}  where  id ='node-intro';
  
 ```
 
+#### Tuples:
+
+Cassandra supports tuples data type.Tuple is a series of data types of different type of particular order.  
+
+Consider the scenario where you would like to know the previously logged in timestamp and logged in ip address.  
+
+
+```
+(varchar,int,int,varchar,timestamp);
+```
+
+You must use the frozen keyword when you want to nest the complex data types.  
+Nested types are serialized as single blob value.Nested values must be read as a whole.    
+
+```
+drop table collectiontest; 
+
+CREATE TABLE collectiontest (
+id varchar,
+module_id int,
+name varchar static,
+last_login map<varchar,frozen <tuple<timestamp,inet>>> ,
+PRIMARY KEY (id)
+);
+
+```
 
 **Primary Key and Partition Key :**
 
