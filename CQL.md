@@ -712,6 +712,33 @@ SELECT * FROM users
 WHERE <MAPCOLUMN> CONTAINS KEY <KEY>
 ```
 
+#### Batches:  
+
+Intended for keeping tables in sync. Not intended for fast loading of data.  
+
+Batch is a group of CQL statements submitted together.As the co ordinator is processing the data the progress is communicated to the other nodes.Just incase if the coordinator node goes down then the other node can take over.   
+
+Batch is not a transaction and there is no rollback feature. Just an assurance that all the data will be processed in the batch.  
+
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Batches.png)
+
+```
+BEGIN BATCH
+
+INSERT STATEMENT1;
+INSERT STATEMENT2;
+.
+.
+.
+INSERT STATEMENTN;
+
+APPLY BATCH;
+```
+
+#### UNLOGGED Batch:  
+
+This will not perform multi node logging. This is more appropriate when you are writing multiple rows in to single partition.The batch will be sent to an appropriate node as a SINGLE Write.  
+
 ### How to Expand the resultset in Cassandra?
 
 ```
