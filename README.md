@@ -27,6 +27,8 @@ select token(id),token(company),token(first_name) from users;
 ### Virtual Nodes:
 - Each node in the cluster has a number of virtual nodes. Each vnode is takes a contigous set of token values. Lets say a node has 256 tokens then it is nothing but the node has 256 vnodes.  
 
+-	It is still the six instances of the cassandra responsible for storing the data.
+
 ![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Vnodes.png)
 
 ## How Cassandra stores Data ?  
