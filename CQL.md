@@ -627,12 +627,23 @@ cqlsh:learncassandra> select id, token(id) from courses;
 
 The TTL value determines the time it is going to live in the database.The value corresponds to seconds.    
 
+```
+DROP TABLE COURSES;
+
+CREATE TABLE COURSES(
+id varchar,
+author varchar,
+PRIMARY KEY (id)
+);
+```
+
 **SET ROW LEVEL TTL**  
 
 APPROACH 1:  
 
+
 ```
-insert into simplestrategyreplication.courses  (id,author) values ('cassandra-developers','xyz') USING TTL 32400;
+insert into courses  (id,author) values ('cassandra-developers','xyz') USING TTL 32400;
 ```
 
 APPROACH 2:  
@@ -640,11 +651,13 @@ APPROACH 2:
 The below statement is to have the value set for few seconds as mentioned in the TTL and expires after that.   
 
 ```
-UPDATE USERS USING TTL 120 SET RESET_TOKEN='abc123' where id ='John1';
+ALTER TABLE  courses ADD RESET_TOKEN VARCHAR;
 
-SELECT TTL(RESET_TOKEN) from USERS where id ='John1';
+UPDATE courses USING TTL 120 SET RESET_TOKEN='abc123' where id ='cassandra-developers';
 
-cqlsh:learncassandra> SELECT TTL(RESET_TOKEN) from USERS where id ='John1';
+SELECT TTL(RESET_TOKEN) from courses where id ='cassandra-developers';
+
+cqlsh:learncassandra> SELECT TTL(RESET_TOKEN) from courses where id ='cassandra-developers';
 
  ttl(reset_token)
 ------------------
