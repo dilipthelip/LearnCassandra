@@ -252,6 +252,8 @@ Each node in the Cassandra cluster can function in all the roles required of a c
 	-	**ALL :** When all the nodes responds responsible to write the node returns acknowledgement.The write will fail when one of the replica node fails to send the acknowlegment.
 	-	**ANY :** When the write makes it to the coordinator level then its considered as success.
 	
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Tunable_Consistency.png)
+
 ### Hinted HandOff:
 
 -	What will happen when one of the replica node fails to send the acknowledgment.?
@@ -268,6 +270,8 @@ nodetool pausehandoff
 ### Tunable Consistency Reads:
 -	This works as similar to Writes. Consistency level determines how many nodes it is going to interact to pull the latest data out of the nodes and returns it to the client.
 -	It retrieves the data from one node and digest from the other nodes. The exact number is determined by the consistencey level. The callers passes the configuration value to pull the latest value. It could be ONE, TWO, ALL, ANY or QUORUM.
+
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Read_Consistency1.png)
 
 ### Read Repair :
 -	If client requests with **ALL** as the consistency level then in that case it pulls data from all the replica nodes and determines the latest data and writes it back to the faulty node that does not have the latest data. This will make sure all the replica nodes have the latest data. This is called **Read Repair**.  
