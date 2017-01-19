@@ -39,6 +39,12 @@ After the above statement is run, we need to run the **nodetool repair** to upda
 DROP keyspace simplestrategyreplication;
 ```
 
+### How to check the list of tables in the cassandra Cluster;
+
+```
+desc TABLES;
+```
+
 ### How to create table ?
 
 By default the partition is the primary key of the table.
@@ -147,11 +153,7 @@ PRIMARY KEY(id,module_id)
 
 ```
 
-### How to check the list of tables in the cassandra Cluster;
 
-```
-desc TABLES;
-```
 
 ### DataTypes in Cassandra:
 
@@ -343,11 +345,41 @@ drop table collectiontest;
 CREATE TABLE collectiontest (
 id varchar,
 module_id int,
-name varchar static,
 last_login map<varchar,frozen <tuple<timestamp,inet>>> ,
 PRIMARY KEY (id)
 );
 
+```
+
+Insert a Tuple:  
+
+```
+insert into collectiontest(id, module_id,last_login) 
+values ('node',1,{'laptop':('2015-06-30 09:02:24','10.2.3.2')});
+```
+
+#### User Defined DataType:  
+
+```
+
+drop table collectiontest; 
+
+CREATE TYPE clip (name varchar,duration int);
+
+
+CREATE TABLE collectiontest (
+id varchar,
+clips list<frozen <clip>> ,
+PRIMARY KEY (id)
+);
+
+```
+
+Insert into User Defined Type:  
+
+```
+Insert into collectiontest (id, clips)
+Values ('nodejs', [{name:'introduction',duration:38}]);
 ```
 
 **Primary Key and Partition Key :**
@@ -591,6 +623,95 @@ author varchar
 ) WITH default_time_to_live = 10800;
 
 ```
+
+### Secondary Indexes :  
+
+Primary indexes are created based on the primary key of the table.  
+
+Cassandra does have support for secondary Indexes. These indexes give more option to query data beyond the primary key fields.  
+
+
+```
+
+drop table users; 
+
+CREATE TABLE users (
+id varchar,
+first_name varchar ,
+last_name varchar,
+company varchar,
+
+PRIMARY KEY (id)
+);
+
+
+INSERT INTO USERS (id,first_name,last_name,company) 
+VALUES ('1','abc','def','XYZ');
+```
+
+
+SELECT using index:  
+
+We cannot use a column which is not a primary/cluster/index key in the where statement.You will get the below error message.  
+
+```
+InvalidRequest: Error from server: code=2200 [Invalid query] message="Predicates on non-primary-key columns (company) are not yet supported for non secondary index queries"
+```
+#### Create INDEX:  
+
+The name for the index is not mandatory. 
+
+```
+CREATE INDEX users_Company ON users(company);
+
+select * from users where company='XYZ';
+```
+
+#### Secondary Indexes on Collection:
+
+Indexes in cassandra are supported for collections too. It supports map, list an set.
+
+
+Creating an Index without the index name. Cassandra will name it for us.    
+
+```
+
+drop table users; 
+
+CREATE TABLE users (
+id varchar,
+first_name varchar ,
+last_name varchar,
+company varchar,
+tags set<varchar>,
+PRIMARY KEY (id)
+);
+
+
+INSERT INTO USERS (id,first_name,last_name,company,tags) 
+VALUES ('1','abc','def','XYZ',{'java'});
+```
+
+
+```
+CREATE INDEX ON USERS(tags)
+```
+
+Select using collection INDEX:  
+
+```
+SELECT * FROM users where tags CONTAINS 'java';
+```
+
+By default index created for **MAP** refers to the values in the map.If you want the **where** clause to support keys in the map then index should be created like below.
+
+```
+CREATE INDEX ON TABLE(KEYS(<map_column>));
+
+SELECT * FROM users 
+WHERE <MAPCOLUMN> CONTAINS KEY <KEY>
+```
+
 ### How to Expand the resultset in Cassandra?
 
 ```
