@@ -167,6 +167,7 @@ insert into simplestrategyreplication.courses  (id) values ('cassandra-developer
 
 ### How to update data into the table ?
 
+You always need a primary key column in the where statement to deleta a row from the table.  
 One cannot update the **primary key** of the table.  
 
 ```
@@ -174,8 +175,10 @@ update  simplestrategyreplication.courses set author ='java-developers' where id
 ```
 
 Multiple partition update is also possible.  
+
+If there is no entry with the id is available then new rows will be created in the DB.  
 ```
-update  simplestrategyreplication.courses set author ='java-developers' where id =('cassandra-developers','oracle-developers');
+update courses set author ='java-developers' where id in ('cassandra-developers','oracle-developers');
 
 ```
 
