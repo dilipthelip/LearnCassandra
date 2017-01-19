@@ -123,7 +123,7 @@ create table learncassandra.courses (id varchar primary key) WITH comment =' A T
 The structure of the primary has a significant effect on how many rows a single partition is going to hold.  
 Approach 1:  
 
-In the below scenario it is a combination of **Primary key(partition_key, clustering_key)**. These together make a composite primary key.  
+In the below scenario it is a combination of **Primary key(partition_key, clustering_key)**. These together make a composite primary key.With this we are no longer constrained to one row per partition.    
 
 ```
 CREATE TABLE COURSES (
