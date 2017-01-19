@@ -2,9 +2,14 @@
 
 ### How to launch cqlsh?
 This is a command line tool to execute the CQL statements.  
-
+Approach 1:  
 ```
 cqlsh
+```
+
+Approach 2 :   
+```
+cqlsh --cqlversion='3.3.1'
 ```
 
 ### How to create KeySpace?
