@@ -278,6 +278,8 @@ nodetool pausehandoff
 -	If client requests with **Quorum** as the consistency level then in that case it pulls data from majority of the replica nodes and determines the latest data returns it to the client. In the backgrund it double checks the data and repaired the data.
 -	It is advisable to run the **nodetool repair** command to often to have the nodes up to date with the data.This will resolve consistency levels.
 
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Read_Repair1.png)
+
 #### How to trace a Read Repair?
 
 ```
