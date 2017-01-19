@@ -15,20 +15,20 @@ cqlsh --cqlversion='3.3.1'
 ### How to create KeySpace?
 
 ```
-create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'};
+create keyspace learncassandra WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'};
 ```
 
 **DURABLE WRITES:**  
 This will skip the commit log entry when data is written to the Cassandra DB.   
 
 ```
-create keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'} AND DURABLE_WRITES= false;
+create keyspace learncassandra WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'3'} AND DURABLE_WRITES= false;
 ```
 
 **ALTER KEYSPACE:**  
 
 ```
-ALTER keyspace simplestrategyreplication WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'4'};
+ALTER keyspace learncassandra WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor':'4'};
 ```
 
 After the above statement is run, we need to run the **nodetool repair** to update the cluster with this change.  
@@ -36,7 +36,7 @@ After the above statement is run, we need to run the **nodetool repair** to upda
 **DROP KEYSPACE**
 
 ```
-DROP keyspace simplestrategyreplication;
+DROP keyspace learncassandra;
 ```
 
 ### How to check the list of tables in the cassandra Cluster;
@@ -51,14 +51,14 @@ By default the partition is the primary key of the table.
 
 Approach 1:  
 ```
-use simplestrategyreplication;
+use learncassandra;
 
 create table courses (id varchar primary key);
 ```
 
 Approach 2:  
 ```
-create table simplestrategyreplication.courses (id varchar primary key);
+create table learncassandra.courses (id varchar primary key);
 
 ```
 
@@ -66,31 +66,56 @@ create table simplestrategyreplication.courses (id varchar primary key);
 
 Add a Column:  
 ```
-ALTER TABLE simplestrategyreplication.courses ADD NAME VARCHAR;
+ALTER TABLE learncassandra.courses ADD NAME VARCHAR;
 ```
 
  Drop a Column:  
  
  ```
- ALTER TABLE simplestrategyreplication.courses DROP NAME;
+ ALTER TABLE learncassandra.courses DROP NAME;
  ```
  
  Removing all the data:  
  
  ```
- TRUNCATE simplestrategyreplication.courses;
+ TRUNCATE learncassandra.courses;
  ```
  
  **DROP TABLE:**  
  
  ```
- DROP TABLE simplestrategyreplication.courses;
+ DROP TABLE learncassandra.courses;
  ```
+ 
+ #### Sample Data :  
+ 
+ ```
+drop table users; 
+
+CREATE TABLE users (
+id varchar,
+first_name varchar ,
+last_name varchar,
+company varchar,
+
+PRIMARY KEY (id)
+);
+
+
+INSERT INTO USERS (id,first_name,last_name,company) 
+VALUES ('1','abc','def','XYZ');
+ ```
+ Lets see what happend if we insert the data with the same primary key.  
+ 
+ ```
+ INSERT INTO USERS (id,first_name,last_name,company) 
+VALUES ('1','abc','def','PQR');
+```
 
 **TABLE PROPERTIES:**  
 
 ```
-create table simplestrategyreplication.courses (id varchar primary key) WITH comment =' A Table of Courses';
+create table learncassandra.courses (id varchar primary key) WITH comment =' A Table of Courses';
 ```
 
 ### How to create a composite primary key ?
