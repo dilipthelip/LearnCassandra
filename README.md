@@ -27,6 +27,7 @@ select token(id),token(company),token(first_name) from users;
 ### Virtual Nodes:
 - Each node in the cluster has a number of virtual nodes. Each vnode is takes a contigous set of token values. Lets say a node has 256 tokens then it is nothing but the node has 256 vnodes.  
 
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Vnodes.png)
 
 ## How Cassandra stores Data ?  
 - Cassandra is a **partitioned row store**.Data are read and written with a partition key.
