@@ -194,6 +194,8 @@ It is common to store multiple copies of the data across clusters. It increases 
 KeySpace->Table->Partition->row
 ```
 
+![](https://github.com/dilipthelip/LearnCassandra/blob/master/images/Cassandra_Terminology.png)
+
 - Data in cassandra is organized in to KeySpace(Similar to Oracle/MySQL tableSpace).
 - KeySpace has Tables(It is close to its counterpart Oracle Table).
 - All data written to cassandra is associated with a **Partition** key.
@@ -202,7 +204,8 @@ KeySpace->Table->Partition->row
 - Data within a parition represented as one or more rows.
 - **Replication Strategy** is determined at the keyspace level.
   - **SimpleStrategy:** This is best used in development or single data center clusters.  
-    **Example CQL:**  - 
+ **Example CQL:**  
+ 
     The keyspace name should be in lowercase only.  
     
     ```
