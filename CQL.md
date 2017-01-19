@@ -290,6 +290,28 @@ timestamp.timeuuid
 **Other**  
 boolean,uuid,inet,blob  
 
+**Counter:**  
+```
+DROP TABLE RATINGS;
+
+CREATE TABLE RATINGS (
+course_id varchar,
+ratings_count counter,
+ratings_total counter, 
+PRIMARY KEY (course_id)
+);
+
+
+```
+
+Incrementing a counter:  
+
+**INSERTS** are not allowed in the table with counter data type.  
+
+```
+update RATINGS SET RATINGS_COUNT = RATINGS_COUNT +1,RATINGS_TOTAL = RATINGS_TOTAL+4 WHERE COURSE_ID='node-intro';
+```
+
 ### Complex DataTypes in Cassandra:
 
 #### SET:
