@@ -735,6 +735,10 @@ INSERT STATEMENTN;
 APPLY BATCH;
 ```
 
+#### UNLOGGED Batch:  
+
+This will not perform multi node logging. This is more appropriate when you are writing multiple rows in to single partition.The batch will be sent to an appropriate node as a SINGLE Write.  
+
 ### How to Expand the resultset in Cassandra?
 
 ```
