@@ -712,6 +712,11 @@ SELECT * FROM users
 WHERE <MAPCOLUMN> CONTAINS KEY <KEY>
 ```
 
+#### Batches:  
+
+Intended for keeping tables in sync. Not intended for fast loading of data.  
+
+
 ### How to Expand the resultset in Cassandra?
 
 ```
