@@ -87,7 +87,7 @@ ALTER TABLE learncassandra.courses ADD NAME VARCHAR;
  DROP TABLE learncassandra.courses;
  ```
  
- #### Sample Data :  
+#### Sample Data :  
  
  ```
 drop table users; 
@@ -162,7 +162,11 @@ PRIMARY KEY ((P_KEY1,...P_KEY_N))
 ### How to insert data into the table ?
 
 ```
-insert into simplestrategyreplication.courses  (id) values ('cassandra-developers','xyz','author1');
+INSERT INTO COURSES (ID,NAME,AUTHOR,AUDIENCE,DURATION,CC,RELEASED,MODULE_ID,MODULE_NAME,MODULE_DURATION)
+VALUES ('AngularJS-Get-Started','AngularJS2 : Get Started', 'Scott Alen', 1,10560,true,'2014-06-05',1,'Getting Started with Angular',2174);
+
+INSERT INTO COURSES (ID,NAME,AUDIENCE,DURATION,CC,RELEASED,MODULE_ID,MODULE_NAME,MODULE_DURATION)
+VALUES ('AngularJS-Get-Started','AngularJS : Get Started', 1,10560,true,'2014-06-05',2,'Angular Fundamentals',2174);
 ```
 
 ### How to update data into the table ?
@@ -171,7 +175,7 @@ You always need a primary key column in the where statement to deleta a row from
 One cannot update the **primary key** of the table.  
 
 ```
-update  simplestrategyreplication.courses set author ='java-developers' where id ='cassandra-developers';
+update  courses set author ='java-developers' where id ='AngularJS-Get-Started';
 ```
 
 Multiple partition update is also possible.  
@@ -189,7 +193,7 @@ update courses set author ='java-developers' where id in ('cassandra-developers'
 You always need a primary key column in the where statement to deleta a row from the table.  
 
 ```
-delete from simplestrategyreplication.courses where id ='cassandra-developers';
+delete from courses where id ='AngularJS-Get-Started';
 ```
 
 **DELETE COLUMN**    
@@ -207,26 +211,26 @@ update  simplestrategyreplication.courses set author ='null' where id =('cassand
 
 Approach 1:  
 ```
-select * from simplestrategyreplication.courses;
+select * from courses;
 ```
 
 Approach 2:  
 Cassandra suppports Alias **AS**  
 ```
-select id as name from simplestrategyreplication.courses;
+select id as name from courses;
 ```
 
 Approach 3:  
 
 **IN** clause.
 ```
-select id as name from simplestrategyreplication.courses where id in ('cassandra-developers');
+select id as name from courses where id in ('cassandra-developers');
 ```
 
 Approach 4:  
 Limit the result to a certain number;  
 ```
-select * from simplestrategyreplication.courses LIMIT 100;
+select * from courses LIMIT 100;
 ```
 
 #### Distinct Keyword:
