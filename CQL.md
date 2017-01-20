@@ -171,7 +171,7 @@ VALUES ('AngularJS-Get-Started','AngularJS : Get Started', 1,10560,true,'2014-06
 
 ### How to update data into the table ?
 
-You always need a primary key column in the where statement to deleta a row from the table.  
+You always need a primary key column in the where statement to update a row in the table.  
 One cannot update the **primary key** of the table.  
 
 ```
